@@ -1,0 +1,30 @@
+<html>
+
+</html>
+
+<head>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/index.js"></script>
+
+
+    <title> Material </title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <a-assets>
+            <img id="sky" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" />
+        </a-assets>
+
+        <a-plane color="gray" position="0 0 -3" scale="1000 1000 0" rotation="-90 0 0">
+        </a-plane>
+        <a-sky src="#sky" rotation="0 -60 0">
+        </a-sky>
+
+        <a-entity geometry="primitive: sphere" material="color: red;opacity: 0.8;roughness: 0.01" position="0 1 -5">
+        </a-entity>
+    </a-scene>
+</body>
+
+</html>
