@@ -1,29 +1,45 @@
 <html>
 
-</html>
-
 <head>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/index.js"></script>
 
 
-    <title> Material </title>
+    <title> Animation-lesson </title>
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
 </head>
 
 <body>
     <a-scene>
         <a-assets>
-            <img id="sky" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg" />
+            <a-asset-item id="sample"
+                src="https://cdn.glitch.global/7078a71b-383a-4515-abb9-5800d43c6930/compressed.glb?v=1692186289432"></a-asset-item>
+            <img id="sky" src="" />
         </a-assets>
 
         <a-plane color="gray" position="0 0 -3" scale="1000 1000 0" rotation="-90 0 0">
         </a-plane>
+
         <a-sky src="#sky" rotation="0 -60 0">
         </a-sky>
 
-        <a-entity geometry="primitive: sphere" material="color: red;opacity: 0.8;roughness: 0.01" position="0 1 -5">
+        <!-- Animations-->
+
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; easing:linear;loop: true; dur: 10000"
+            position="0 1 -3">
+            <a-sphere position="1 0 0" color="magenta" scale="0.25 0.25 0.25"></a-sphere>
         </a-entity>
+
+        <a-entity gltf-model="#sample" position="0 0 -3">
+            <a-entity id="spot" light="angle: 20; color: yellow; intensity: 1.0; type: spot" rotation="-90 0 0"
+                position="0 2 0"
+                animation="property: light.intensity; from:1.0; to: 20.0; loop: true; dur: 5000; dir: alternate;"></a-entity>
+        </a-entity>
+
+        <!--Lighting-->
+        <a-entity light="type: ambient; color:#BBB"></a-entity>
+        <a-entity light="type: directional; color: #FFF; intensity: 0.6; castShadow:true; "
+            position="-0.5 1 1"></a-entity>
     </a-scene>
 </body>
 
